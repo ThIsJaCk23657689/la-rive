@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+	font-family: 'Vogue Regular';
+	src: url('./fonts/Vogue.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: '文鼎細黑';
+	src: url('./fonts/WenDingThin.ttf') format('truetype');
+} 
+
+body {
+	min-height: 100vh;
+	font-family: 'Vogue Regular', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	font-size: 16px;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow: hidden;
+}
+
+/* 應用中文字體給中文元素 */
+.chinese-font {
+	font-family: '文鼎細黑', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+#app {
+	min-width: 400px;
+	min-height: 400px;
+	width: 100wh;
+	height: 100vh;
+}
