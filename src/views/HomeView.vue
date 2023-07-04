@@ -8,7 +8,7 @@ import Menu from '../components/Menu.vue'
 	</Transition>
 
 	<Transition name="slide-fade-up" appear>
-		<div class="cube cube-2"></div>
+		<div class="cube cube-2 bg-primary-100"></div>
 	</Transition>
 
 	<Transition name="slide-fade-left" appear>
@@ -23,10 +23,10 @@ import Menu from '../components/Menu.vue'
 		
 		<div class="cube-3-side flex flex-col relative">
 			<Transition name="slide-fade-right" appear>
-				<div class="cube cube-4"></div>
+				<div class="cube cube-4 bg-primary-200"></div>
 			</Transition>
 			<Transition name="slide-fade-up" appear>
-				<div class="cube cube-5"></div>
+				<div class="cube cube-5 bg-primary-400"></div>
 			</Transition>
 		</div>
 	</div>
@@ -119,7 +119,6 @@ import Menu from '../components/Menu.vue'
 	height: 64%;
 	left: 13%;
 	bottom: 0px;
-	background-color: #006878;
 }
 
 .cube-3-parent {
@@ -144,7 +143,6 @@ import Menu from '../components/Menu.vue'
 	width: 100%;
 	height: 40%;
 	position: relative;
-	background-color: #b56f3b;
 }
 
 .cube-5 {
@@ -153,7 +151,6 @@ import Menu from '../components/Menu.vue'
 	position: absolute;
 	left: -49%;
 	bottom: 0px;
-	background-color: #e7dbc2;
 }
 
 .cube-logo {

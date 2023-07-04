@@ -3,10 +3,10 @@ import { ref } from 'vue';
 import MenuItem from '../components/MenuItem.vue'
 
 const menuItems = ref([
-	{ englishText: 'BONJOUR!', chineseText: '地段' },
-	{ englishText: 'CLAO!',    chineseText: '規劃' },
-	{ englishText: 'SALUT!',   chineseText: '選材' },
-	{ englishText: 'BRAVO!',   chineseText: '品牌' },
+	{ path:'/bonjour', englishText: 'BONJOUR!', chineseText: '地段' },
+	{ path:'/clao', englishText: 'CLAO!',    chineseText: '規劃' },
+	{ path:'/salut', englishText: 'SALUT!',   chineseText: '選材' },
+	{ path:'/bravo', englishText: 'BRAVO!',   chineseText: '品牌' },
 ]);
 
 </script>
@@ -16,7 +16,7 @@ const menuItems = ref([
 	
 	<template v-for="item in menuItems">
 		<Transition name="fade-in" appear>
-			<MenuItem>
+			<MenuItem :path="item.path">
 				<template #EnglishText>
 					{{ item.englishText }}
 				</template>
