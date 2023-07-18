@@ -46,10 +46,8 @@ import Menu from '../components/Menu.vue'
 
 	<main class="h-screen grid grid-cols-5">
 		<div class="col-end-6">
-			<div class="h-screen grid grid-rows-5">
-				<div class="row-start-2 row-span-4">
-					<Menu></Menu>
-				</div>
+			<div class="relative menu-container">
+				<Menu></Menu>
 			</div>
 		</div>
 	</main>
@@ -196,4 +194,13 @@ import Menu from '../components/Menu.vue'
 	background-position: left;
 }
 
+.menu-container {
+	top: 17%;
+}
+
+@media (max-width: 1536px) {
+.menu-container {
+	top: 16%;
+}
+}
 </style>

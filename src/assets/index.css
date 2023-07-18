@@ -34,3 +34,7 @@ body {
 	width: 100wh;
 	height: 100vh;
 }
+
+.transition-300-out {
+	transition: all 300ms ease-out;
+}

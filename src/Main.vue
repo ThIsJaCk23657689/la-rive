@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
 import { RouterView } from 'vue-router'
 import screenfull from 'screenfull';
 
@@ -8,13 +7,6 @@ const toggleFullscreen = () => {
         screenfull.request();
     }
 };
-
-onMounted(() => {
-    const fullscreenElement = document.querySelector('.fullscreen');
-    fullscreenElement?.addEventListener('click', () => {
-        toggleFullscreen();
-    });
-});
 
 </script>
 

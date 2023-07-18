@@ -28,11 +28,13 @@ const menuItems = ref([
         hoverColor: 'hover:text-primary-200',
         subItemTop: 'subItemOffset-2',
         subItems: [
-            { id: 1, path: '#', name: '外觀3D' },
-            { id: 2, path: '#', name: '1樓' },
-            { id: 3, path: '#', name: '頂樓' },
-            { id: 4, path: '#', name: '標準層' },
-            { id: 5, path: '#', name: '各戶平面' }
+            { id: 1, path: '#', name: '3D影片' },
+            { id: 2, path: '#', name: '外觀3D' },
+            { id: 3, path: '#', name: '1樓' },
+            { id: 4, path: '#', name: '頂樓' },
+            { id: 5, path: '#', name: '標準層' },
+            { id: 6, path: '#', name: '各戶平面' },
+            { id: 7, path: '#', name: 'B1-B3' }
         ]  
     },
 	{ 
