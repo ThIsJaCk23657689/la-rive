@@ -17,10 +17,10 @@ const props = defineProps({
 			transition ease-out duration-300 overflow-hidden">
 			
 			<div class="flex flex-col">
-				<span class="font-semibold tracking-wide english-font">
+				<span class="font-semibold tracking-wide english-font text-3xl">
 					<slot name="EnglishText"></slot>
 				</span>
-				<span class="font-semibold chinese-font">
+				<span class="font-semibold chinese-font text-2xl">
 					<slot name="ChineseText"></slot>
 				</span>
 			</div>
@@ -34,27 +34,10 @@ const props = defineProps({
 	margin-bottom: 2.8rem;
 }
 
-.english-font {
-	font-size: 1.875rem;
-}
-
-.chinese-font {
-	font-size: 1.5rem;
-}
-
-
 @media (max-width: 1536px) {
-.english-font {
-	font-size: 1.5rem;
-}
-
-.chinese-font {
-	font-size: 1.25rem;
-}
-
-.item {
-	margin-bottom: 2.2rem;
-}
+	.item {
+		margin-bottom: 3.2rem;
+	}
 }
 
 </style>

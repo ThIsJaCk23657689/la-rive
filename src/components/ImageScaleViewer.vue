@@ -93,9 +93,9 @@ function reset() {
 </script>
 
 <template>
-    <div ref="imgaeContainer" class="overflow-hidden h-full relative bg-primary-400">
+    <div ref="imgaeContainer" class="overflow-hidden h-full relative bg-primary-300">
         <img ref="mainImage" :src="imageUrls[currentIndex]" alt="Image" 
-            class="main-image object-cover w-full h-full" 
+            class="object-cover w-full h-full" 
             :style="{
                 transform: `scale(${scale}) translate(${translateX}px, ${translateY}px)`,
                 transition: dragging ? 'none' : 'transform 0.3s ease-out'

@@ -4,7 +4,9 @@ import Menu from '../components/Menu.vue'
 
 <template>
 	<Transition name="slide-fade-right" appear>
-		<div class="cube cube-1 bg-indigo-200"></div>
+		<div class="cube cube-1 bg-indigo-200">
+			<img src="@/assets/images/index_left_top_cube_bg.jpg" alt="" class="w-full h-full object-cover">
+		</div>
 	</Transition>
 
 	<Transition name="slide-fade-up" appear>
@@ -17,7 +19,9 @@ import Menu from '../components/Menu.vue'
 	
 	<div class="cube cube-3-parent flex">
 		<Transition name="slide-fade-left" appear>
-			<div class="cube cube-3 bg-indigo-600"></div>
+			<div class="cube cube-3 bg-indigo-600">
+				<img src="@/assets/images/index_middle_bottom_cube_bg.jpg" alt="" class="w-full h-full object-cover">
+			</div>
 		</Transition>
 		
 		
@@ -108,8 +112,6 @@ import Menu from '../components/Menu.vue'
 	height: 43%;
 	top: 0px;
 	left: 0px;
-	background-image: url('@/assets/images/index_left_top_cube_bg.jpg');
-	background-position: right 0px;
 }
 
 .cube-2 {
@@ -130,7 +132,6 @@ import Menu from '../components/Menu.vue'
 	width: 93%;
 	height: 100%;
 	position: relative;
-	background-image: url('@/assets/images/index_middle_bottom_cube_bg.jpg');
 }
 
 .cube-3-side {
@@ -199,8 +200,8 @@ import Menu from '../components/Menu.vue'
 }
 
 @media (max-width: 1536px) {
-.menu-container {
-	top: 16%;
-}
+	.menu-container {
+		top: 16%;
+	}
 }
 </style>

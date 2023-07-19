@@ -16,7 +16,7 @@ const menuItems = ref([
         hoverColor: 'hover:text-primary-100',
         subItemTop: 'subItemOffset-1',
         subItems: [
-            { id: 1, path: '#', name: '生活圈' }
+            { id: 1, path: '/bonjour', name: '生活圈' }
         ]  
     },
 	{ 
@@ -29,7 +29,7 @@ const menuItems = ref([
         subItemTop: 'subItemOffset-2',
         subItems: [
             { id: 1, path: '#', name: '3D影片' },
-            { id: 2, path: '#', name: '外觀3D' },
+            { id: 2, path: '/clao', name: '外觀3D' },
             { id: 3, path: '#', name: '1樓' },
             { id: 4, path: '#', name: '頂樓' },
             { id: 5, path: '#', name: '標準層' },
@@ -42,20 +42,24 @@ const menuItems = ref([
         path:'/salut',   
         englishText: 'SALUT!',   
         chineseText: '選材', 
-        boderColor: 'border-black',   
-        hoverColor: 'hover:text-black',
+        boderColor: 'border-primary-700',   
+        hoverColor: 'hover:text-primary-700',
         subItemTop: 'subItemOffset-3',
-        subItems: []  
+        subItems: [
+            { id: 1, path: '#', name: '測試' }
+        ]  
     },
 	{ 
         id: 4,
         path:'/bravo',   
         englishText: 'BRAVO!',   
         chineseText: '品牌', 
-        boderColor: 'border-white',   
-        hoverColor: 'hover:text-white',
+        boderColor: 'border-black',   
+        hoverColor: 'hover:text-black',
         subItemTop: 'subItemOffset-4',
-        subItems: []    
+        subItems: [
+            { id: 1, path: '#', name: '測試' }
+        ]    
     },
 ]);
 
@@ -84,7 +88,7 @@ watch(
 <template>
     <div class="w-full h-full">
 
-        <Transition name="slide-fade-down" appear>
+        <Transition name="slide-fade-up" appear>
             <div class="absolute cube-1 bg-primary-100"></div>
 	    </Transition>
 
@@ -99,39 +103,24 @@ watch(
                                     <span class="text-3xl font-semibold tracking-wide english-font">
                                         {{ item.englishText }}
                                     </span>
-                                    <span class="text-2xl font-semibold">
+                                    <span class="text-2xl font-semibold chinese-font">
                                         {{ item.chineseText }}
                                     </span>
                                 </div>
                             </RouterLink>
 
-                            <transition name="slide-silde-right" appear>
-                                <div v-if="isActive(item.path)" :class="['absolute', 'submenu', item.subItemTop, 'overflow-hidden']">
-                                    <div class="w-40">
-                                        <span class="text-2xl text-primary-500 px-2 pb-2 inline-block font-semibold">
-                                            {{ item.chineseText }}
-                                        </span>
-
-                                        <template v-if="item.id === 4">
-                                            <ul :class="['border-t-4', 'p-2', 'border-primary-500']">
-                                                <li v-for="subItem in item.subItems" :key="subItem.id">
-                                                    <a href="#" class="text-primary-600 mb-2 block hover:text-primary-500 transition duration-300 ease-out">
-                                                        <span class="text-xl">{{ subItem.name }}</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </template>
-                                        <template v-else>
-                                            <ul :class="['border-t-4', 'p-2', item.boderColor]">
-                                                <li v-for="subItem in item.subItems" :key="subItem.id">
-                                                    <a href="#" class="text-primary-600 mb-2 block hover:text-primary-500 transition duration-300 ease-out">
-                                                        <span class="text-xl">{{ subItem.name }}</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </template>
-                                        
-                                    </div>
+                            <transition name="slide-silde-down" appear>
+                                <div v-if="isActive(item.path)" :class="['submenu', item.subItemTop]">
+                                    <ul :class="['border-t-4', 'p-2', item.boderColor]">
+                                        <li v-for="subItem in item.subItems" :key="subItem.id">
+                                            <RouterLink v-if="isActive(subItem.path)" :to="subItem.path" class="mb-1 block text-black font-bold">
+                                                <span class="text-xl">{{ subItem.name }}</span>
+                                            </RouterLink>
+                                            <RouterLink v-else :to="subItem.path" class="text-primary-600 mb-1 block hover:text-black hover:font-bold transition-300-out">
+                                                <span class="text-xl">{{ subItem.name }}</span>
+                                            </RouterLink>
+                                        </li>
+                                    </ul>
                                 </div>
                             </transition>
 
@@ -147,13 +136,6 @@ watch(
 
             </div>
         </Transition>
-        
-        
-        
-
-        <Transition name="slide-fade-up" appear>
-            <div class="absolute cube-3 bg-primary-300"></div>
-        </Transition>
 
     </div>
 </template>
@@ -161,40 +143,33 @@ watch(
 <style scoped>
 .cube-1 {
 	width: 16%;
-	height: 29%;
-	top: 0px;
+	height: 12.78%;
+	bottom: 0px;
 	left: 0px;
 }
 
 .cube-2 {
-	width: 50%;
-	height: 75%;
-	bottom: 8%;
+	width: 84%;
+	height: 85%;
+	top: 09.91%;
 	left: 16%;
     padding-top: 12.13%;
 }
 
-.cube-3 {
-	width: 34%;
-	height: 8%;
-	bottom: 0px;
-	right: 0px;
-}
-
 .submenu {
-    width: 50%;
-	left: 100%;
+    margin-left: 30%;
+    max-height: 500px;
 }
 
 .logo {
     position: absolute;
-    margin-left: 17.5%;
-    margin-bottom: 17.5%;
+    margin-left: 5.5%;
+    margin-bottom: 6.5%;
     bottom: 0px;
 }
 
 .item {
-	margin-bottom: 21%;
+	margin-bottom: 10%;
 }
 
 .item-link {
@@ -225,7 +200,11 @@ watch(
     top: 51%;
 }
 
-
+@media (max-width: 1536px) {
+    .logo {
+        width: 35%;
+    }
+}
 
 
 /* ========================== */
@@ -265,14 +244,18 @@ watch(
 }
 
 /* ========================== */
-.slide-silde-right-enter-active,
-.slide-silde-right-leave-active {
-	transition: all 0.8s ease-out;
+.slide-silde-down-enter-active {
+    transition: all 1.0s ease-out;
 }
 
-.slide-silde-right-enter-from,
-.slide-silde-right-leave-to {
-    width: 0%;
+.slide-silde-down-leave-active {
+	transition: all 0.5s ease-out;
+}
+
+.slide-silde-down-enter-from,
+.slide-silde-down-leave-to {
+    max-height: 0;
+    overflow: hidden;
 	opacity: 0;
 }
 

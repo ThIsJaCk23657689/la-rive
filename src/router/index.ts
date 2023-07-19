@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+
+import ContentLayout from '../layouts/ContentLayout.vue'
 import BonjourView from '../views/BonjourView.vue'
 import ClaoView from '../views/ClaoView.vue'
 import SalutView from '../views/SalutView.vue'
@@ -14,32 +16,30 @@ const router = createRouter({
 			component: HomeView,
 		},
 		{
-			path: '/bonjour',
-			name: 'bonjour',
-			component: BonjourView,
-		},
-		{
-			path: '/clao',
-			name: 'clao',
-			component: ClaoView,
-		},
-		{
-			path: '/salut',
-			name: 'salut',
-			component: SalutView,
-		},
-		{
-			path: '/Bravo',
-			name: 'bravo',
-			component: BravoView,
-		},
-		{
-			path: '/about',
-			name: 'about',
-			// route level code-splitting
-			// this generates a separate chunk (About.[hash].js) for this route
-			// which is lazy-loaded when the route is visited.
-			component: () => import('../views/AboutView.vue')
+			path: '/',
+			component: ContentLayout,
+			children: [
+				{
+					path: 'bonjour',
+					name: 'bonjour',
+					component: BonjourView,
+				},
+				{
+					path: 'clao',
+					name: 'clao',
+					component: ClaoView,
+				},
+				{
+					path: 'salut',
+					name: 'salut',
+					component: SalutView,
+				},
+				{
+					path: 'Bravo',
+					name: 'bravo',
+					component: BravoView,
+				}
+			]
 		}
 	]
 })

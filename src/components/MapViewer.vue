@@ -2,9 +2,17 @@
 import { ref } from 'vue';
 import IconMagnifyingGlassPlus from '../components/icons/IconMagnifyingGlassPlus.vue';
 import IconMagnifyingGlassMinus from '../components/icons/IconMagnifyingGlassMinus.vue';
+import ImageModalViwer from './ImageModalViwer.vue';
 
-defineProps<{
+const props = defineProps<{
     imageUrl: string
+    spotData: Array<{
+        id: number
+        name: string
+        top: number
+        left: number,
+        images: Array<string>
+    }>
 }>()
 
 function ceil (value: number) {
@@ -17,6 +25,8 @@ const lastMouseX = ref(0);          // 上次滑鼠 X 座標
 const lastMouseY = ref(0);          // 上次滑鼠 Y 座標
 const translateX = ref(0);          // X 軸位移
 const translateY = ref(0);          // Y 軸位移
+const showModal = ref(false);       // 是否顯示 modal
+const currentSpotIndex = ref(0);    // modal 要顯示哪一個景點的照片（編號）  
 
 function zoomIn() {
     if ( scale.value < 5.0 ) {
@@ -76,13 +86,20 @@ function reset() {
     translateY.value = 0;
 }
 
+function popupModal(spotIndex: number) {
+    showModal.value = true;
+    currentSpotIndex.value = spotIndex;
+}
+
+function closeModal() {
+    showModal.value = false;
+}
+
 </script>
 
 <template>
-    <div ref="imgaeContainer" class="overflow-hidden h-full relative bg-primary-400">
-        <img ref="mainImage" :src="imageUrl" alt="Image" 
-            class="main-image object-cover w-full h-full" 
-            :style="{
+    <div ref="imgaeContainer" class="overflow-hidden h-full relative bg-primary-300">
+        <div class="w-full h-full relative" :style="{
                 transform: `scale(${scale}) translate(${translateX}px, ${translateY}px)`,
                 transition: dragging ? 'none' : 'transform 0.3s ease-out'
             }"
@@ -91,8 +108,19 @@ function reset() {
             @mouseup="stopDragging"
             @mouseleave="stopDragging"
             @mouseenter="handleMouseEnter"
-            @wheel="handleWheel"
-        />
+            @wheel="handleWheel">
+            <img :src="imageUrl" alt="Image" class="object-cover w-full h-full" />
+
+            <template v-for="(spot, index) in spotData" :key="index">
+                <button v-if="spot.images.length !== 0" class="spot transition-300-out" 
+                    :style="{ top: `${spot.top}%`, left: `${spot.left}%` }"
+                    @click="popupModal(index)">
+                </button>
+                <button v-else class="spot disable cursor-default transition-300-out" 
+                    :style="{ top: `${spot.top}%`, left: `${spot.left}%` }">
+                </button>
+            </template>
+        </div>
         <div class="control-panel">
             <div class="left-area bg-primary-100 shadow-md relative flex flex-row items-center justify-center">
                 <button class="scale-button" @click="zoomIn">
@@ -107,6 +135,12 @@ function reset() {
             </div>
         </div>
     </div>
+
+    <ImageModalViwer v-if="showModal" 
+        :images="spotData[currentSpotIndex].images" 
+        :title="spotData[currentSpotIndex].name"
+        @close-modal="closeModal" />
+
 </template>
 
 <style scoped>
@@ -137,6 +171,31 @@ function reset() {
     font-size: 14px;
     border: 2px solid #fff;
     border-radius: 20px;
+}
+
+.spot {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #f6921e;
+    border-radius: 50%;
+    top: 0%;
+    left: 0%;
+}
+
+.spot.disable {
+    background-color: #bfbfbf;
+}
+
+.spot:not(.disable):hover {
+    background-color: #f7cc99;
+}
+
+@media (max-width: 1536px) {
+.spot {
+    width: 20px;
+    height: 20px;
+}
 }
 
 </style>
