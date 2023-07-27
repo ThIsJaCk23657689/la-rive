@@ -46,17 +46,17 @@ const menuItems = ref([
         hoverColor: 'hover:text-primary-700',
         subItemTop: 'subItemOffset-3',
         subItems: [
-            { id: 1, path: '#', name: '日本 Panasonic 頂級整體廚具' },
-            { id: 2, path: '#', name: '日本林內 Rinnai 瓦斯爐與抽油煙機' },
-            { id: 3, path: '#', name: '德國 BOSCH 全崁式洗碗機' },
-            { id: 4, path: '#', name: '日本 Panasonic 精品衛浴' },
-            { id: 5, path: '#', name: '德國 innoci 精品衛浴' },
-            { id: 6, path: '#', name: '德國 hansgrohe 頂級衛浴五金龍頭' },
-            { id: 7, path: '#', name: 'LIFEGEAR 多功能暖風機' },
+            { id: 1, path: '/salut/panasonic-kitchen', name: '日本 Panasonic 頂級整體廚具' },
+            { id: 2, path: '/salut/rinnai', name: '日本林內 Rinnai 瓦斯爐與抽油煙機' },
+            { id: 3, path: '/salut/bosch', name: '德國 BOSCH 全崁式洗碗機' },
+            { id: 4, path: '/salut/panasonic-bathroom', name: '日本 Panasonic 精品衛浴' },
+            { id: 5, path: '/salut/innoci', name: '德國 innoci 精品衛浴' },
+            { id: 6, path: '/salut/hansgrohe', name: '德國 hansgrohe 頂級衛浴五金龍頭' },
+            { id: 7, path: '/salut/lifegear', name: 'LIFEGEAR 多功能暖風機' },
             { id: 8, path: '#', name: '力霸精品氣密窗 + 膠合玻璃' },
-            { id: 9, path: '#', name: 'WAFERLOCK 精品電子鎖' },
-            { id: 10, path: '#', name: '比利時 Lamett 石晶地板' },
-            { id: 11, path: '#', name: '日本大建室內靜音門' }
+            { id: 9, path: '/salut/waferlock', name: 'WAFERLOCK 精品電子鎖' },
+            { id: 10, path: '/salut/lamett', name: '比利時 Lamett 石晶地板' },
+            { id: 11, path: '/salut/daiken', name: '日本大建室內靜音門' }
         ]  
     },
 	{ 
