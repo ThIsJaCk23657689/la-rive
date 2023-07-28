@@ -45,11 +45,8 @@ const router = createRouter({
 					path: 'salut',
 					name: 'salut',
 					component: SalutView,
+					redirect: { name: 'panasonic-kitchen' },
 					children: [
-						{
-							path: '',
-							redirect: { name: 'panasonic-kitchen' }
-						},
 						{
 							path: 'panasonic-kitchen',
 							name: 'panasonic-kitchen',

@@ -45,12 +45,13 @@ const buttons = [
         end: 11
     }
 ];
+
+const logo = new URL('@/assets/images/salut/logos/Lamett.png', import.meta.url).href;
 </script>
 
 <template>
-<SalutWrapper :pages="pages" :buttons="buttons">
+<SalutWrapper :pages="pages" :buttons="buttons" :logo="logo">
     <template v-slot:header>
-        <div class="text-white text-5xl font-bold tracking-wide mr-10">Lamett</div>
         <div class="text-white text-xl tracking-wide mr-10">健康，更貼近自然</div>
     </template>
 </SalutWrapper>

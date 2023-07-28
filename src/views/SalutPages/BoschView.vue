@@ -23,12 +23,13 @@ const buttons = [
         end: 3
     },
 ];
+
+const logo = new URL('@/assets/images/salut/logos/Bosch.png', import.meta.url).href;
 </script>
 
 <template>
-<SalutWrapper :pages="pages" :buttons="buttons">
+<SalutWrapper :pages="pages" :buttons="buttons" :logo="logo">
     <template v-slot:header>
-        <div class="text-white text-5xl font-bold tracking-wide mr-10">Bosch</div>
         <div class="text-white text-xl tracking-wide mr-10">科技成就生活之美</div>
     </template>
 </SalutWrapper>

@@ -21,12 +21,13 @@ const buttons = [
         end: 3
     }
 ];
+
+const logo = new URL('@/assets/images/salut/logos/Lifegear.png', import.meta.url).href;
 </script>
 
 <template>
-<SalutWrapper :pages="pages" :buttons="buttons">
+<SalutWrapper :pages="pages" :buttons="buttons" :logo="logo">
     <template v-slot:header>
-        <div class="text-white text-5xl font-bold tracking-wide mr-10">LIFEGEAR</div>
         <div class="text-white text-xl tracking-wide mr-10">轉動生活的齒輪</div>
     </template>
 </SalutWrapper>

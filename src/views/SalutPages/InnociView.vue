@@ -14,20 +14,21 @@ const buttons = [
     {
         text: "精品衛浴",
         start: 0,
-        end: 0
+        end: 1
     },
     {
         text: "樣品屋",
-        start: 1,
-        end: 1
+        start: 2,
+        end: 2
     }
 ];
+
+const logo = new URL('@/assets/images/salut/logos/Innoci.png', import.meta.url).href;
 </script>
 
 <template>
-<SalutWrapper :pages="pages" :buttons="buttons">
+<SalutWrapper :pages="pages" :buttons="buttons" :logo="logo">
     <template v-slot:header>
-        <div class="text-white text-5xl font-bold tracking-wide mr-10">innoci</div>
         <div class="text-white text-xl tracking-wide mr-10">起源於德國精工的整體衛浴解決方案</div>
     </template>
 </SalutWrapper>

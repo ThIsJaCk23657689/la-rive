@@ -30,12 +30,13 @@ const buttons = [
         end: 5
     },
 ];
+
+const logo = new URL('@/assets/images/salut/logos/Hansgrohe.png', import.meta.url).href;
 </script>
 
 <template>
-<SalutWrapper :pages="pages" :buttons="buttons">
+<SalutWrapper :pages="pages" :buttons="buttons" :logo="logo">
     <template v-slot:header>
-        <div class="text-white text-5xl font-bold tracking-wide mr-10">hansgrohe</div>
         <div class="text-white text-xl tracking-wide mr-10">世界頂尖工藝打造</div>
     </template>
 </SalutWrapper>

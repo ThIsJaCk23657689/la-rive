@@ -9,7 +9,8 @@ const props = defineProps<{
         text: string,
         start: number,
         end: number
-    }>
+    }>,
+    logo: string
 }>()
 
 const currentPageIndex = ref(0);
@@ -23,15 +24,35 @@ const currentView = computed(() => {
 function PrevPage() {
     // currentMode.value = "left";
     currentPageIndex.value = ( currentPageIndex.value - 1 + props.pages.length ) % props.pages.length;
+    UpdateClassButtonActive();
 }
 
 function NextPage() {
     // currentMode.value = "right";
     currentPageIndex.value = ( currentPageIndex.value + 1 ) % props.pages.length;
+    UpdateClassButtonActive();
 }
 
 function IsButtonActive(index: number) {
     return index === currentButtonIndex.value;
+}
+
+function OnClassButtonClicked(index: number) {
+    if (props.buttons[index].start >= props.pages.length) {
+        return;     
+    }
+
+    currentPageIndex.value = props.buttons[index].start;
+    UpdateClassButtonActive();
+}
+
+function UpdateClassButtonActive() {
+    for (let i = 0; i < props.buttons.length; i++) {
+        if (currentPageIndex.value >= props.buttons[i].start && currentPageIndex.value <= props.buttons[i].end) {
+            currentButtonIndex.value = i;
+            break;
+        }
+    }
 }
 
 </script>
@@ -39,12 +60,13 @@ function IsButtonActive(index: number) {
 <template>
 <div class="bg-primary-100 w-full top flex flex-row justify-between items-end pb-6 px-20">
     <div class="flex flex-row items-end">
+        <img :src="logo" alt="" class="mr-4">
         <slot name="header"></slot>
     </div>
 
     <div class="flex flex-row gap-3">
         <template v-for="(button, index) in buttons">
-            <SalutClassButton :active="IsButtonActive(index)">
+            <SalutClassButton :active="IsButtonActive(index)" @click="OnClassButtonClicked(index)">
                 {{ button.text }}
             </SalutClassButton>
         </template>

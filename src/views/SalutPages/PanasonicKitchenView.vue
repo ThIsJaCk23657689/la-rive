@@ -45,12 +45,13 @@ const buttons = [
         end: 10
     }
 ];
+
+const logo = new URL('@/assets/images/salut/logos/Panasonic.png', import.meta.url).href;
 </script>
 
 <template>
-<SalutWrapper :pages="pages" :buttons="buttons">
+<SalutWrapper :pages="pages" :buttons="buttons" :logo="logo">
     <template v-slot:header>
-        <div class="text-white text-5xl font-bold tracking-wide mr-10">Panasonic</div>
         <div class="text-white text-xl tracking-wide mr-10">美好生活　從家開始</div>
     </template>
 </SalutWrapper>

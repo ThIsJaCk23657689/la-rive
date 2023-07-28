@@ -22,12 +22,13 @@ const buttons = [
         end: 1
     }
 ];
+
+const logo = new URL('@/assets/images/salut/logos/Waferlock.png', import.meta.url).href;
 </script>
 
 <template>
-<SalutWrapper :pages="pages" :buttons="buttons">
+<SalutWrapper :pages="pages" :buttons="buttons" :logo="logo">
     <template v-slot:header>
-        <div class="text-white text-5xl font-bold tracking-wide mr-10">WAFERLOCK</div>
         <div class="text-white text-xl tracking-wide mr-10">全新智慧電子鎖　體驗未來生活</div>
     </template>
 </SalutWrapper>
