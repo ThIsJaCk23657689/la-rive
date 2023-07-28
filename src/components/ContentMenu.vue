@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, onMounted  } from 'vue';
 import { RouterLink, useRoute } from 'vue-router'
 
 const activeSubMenu = ref(null);
@@ -80,20 +80,26 @@ const showSubMenu = (menuId: any) => {
 };
 
 const isActive = (itemId: any) => {
-    if ( activeSubMenu.value !== null )
-    {
+    if (activeSubMenu.value !== null) {
         return activeSubMenu.value === itemId;
     }
     return false;
 };
 
+const isSubActive = (itemId: any) => {
+    return route.path === itemId;
+};
+
 watch(
     () => route.path,
     () => {
-        // Reset activeSubMenu when route changes
-        activeSubMenu.value = null;
+
     }
 );
+
+onMounted(() => {
+    console.log(activeSubMenu.value);
+})
 
 </script>
 
@@ -125,7 +131,7 @@ watch(
                                 <div v-if="isActive(item.path)" :class="['submenu', item.subItemTop]">
                                     <ul :class="['border-t-4', 'p-2', 'pl-0', item.boderColor]">
                                         <li v-for="subItem in item.subItems" :key="subItem.id">
-                                            <RouterLink v-if="isActive(subItem.path)" :to="subItem.path" class="mb-1 block text-black font-bold">
+                                            <RouterLink v-if="isSubActive(subItem.path)" :to="subItem.path" class="mb-1 block text-black font-bold">
                                                 <span class="submenu-text">{{ subItem.name }}</span>
                                             </RouterLink>
                                             <RouterLink v-else :to="subItem.path" class="text-primary-600 mb-1 block hover:text-black hover:font-bold transition-300-out">

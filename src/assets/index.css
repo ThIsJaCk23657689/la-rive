@@ -32,6 +32,7 @@ body {
 /* 應用中文字體給中文元素 */
 .english-font {
 	font-family: 'Vogue Regular', sans-serif;
+	/* transform: scaleX(120%) translate(9%); */
 }
 
 #app {

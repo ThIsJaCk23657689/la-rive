@@ -1,30 +1,57 @@
 <script setup lang="ts">
-import SalutWrapper from '../../layouts/SalutWrapper.vue'
-import { RouterLink, useRoute } from 'vue-router'
+import { RouterLink } from 'vue-router'
 
+import SalutWrapper from '../../layouts/SalutWrapper.vue'
+import Page01View from './PanasonicKitchen/Page01.vue'
+import Page02View from './PanasonicKitchen/Page02.vue'
+import Page03View from './PanasonicKitchen/Page03.vue'
+import Page04View from './PanasonicKitchen/Page04.vue'
+import Page05View from './PanasonicKitchen/Page05.vue'
+import Page06View from './PanasonicKitchen/Page06.vue'
+import Page07View from './PanasonicKitchen/Page07.vue'
+import Page08View from './PanasonicKitchen/Page08.vue'
+import Page09View from './PanasonicKitchen/Page09.vue'
+import Page10View from './PanasonicKitchen/Page10.vue'
+import Page11View from './PanasonicKitchen/Page11.vue'
+
+const pages = [
+    Page01View,
+    Page02View,
+    Page03View,
+    Page04View,
+    Page05View,
+    Page06View,
+    Page07View,
+    Page08View,
+    Page09View,
+    Page10View,
+    Page11View
+];
+
+const buttons = [
+    {
+        text: "頂級廚具",
+        start: 0,
+        end: 5
+    },
+    {
+        text: "人造石檯面",
+        start: 6,
+        end: 6
+    },
+    {
+        text: "樣品屋",
+        start: 7,
+        end: 10
+    }
+];
 </script>
 
 <template>
-<SalutWrapper>
+<SalutWrapper :pages="pages" :buttons="buttons">
     <template v-slot:header>
         <div class="text-white text-5xl font-bold tracking-wide mr-10">Panasonic</div>
         <div class="text-white text-xl tracking-wide mr-10">美好生活　從家開始</div>
-    </template>
-
-    <template v-slot:button>
-        <RouterLink to="#" class="salut-button active">
-            頂級廚具
-        </RouterLink>
-        <RouterLink to="#" class="salut-button">
-            人造石檯面
-        </RouterLink>
-        <RouterLink to="#" class="salut-button">
-            樣品屋
-        </RouterLink>
-    </template>
-
-    <template v-slot:body>
-        <img src="@/assets/images/salut/Panasonic-kitchen/01.jpg" class="object-cover w-full h-full">
     </template>
 </SalutWrapper>
 </template>

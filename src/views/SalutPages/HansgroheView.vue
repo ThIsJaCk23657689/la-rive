@@ -1,43 +1,46 @@
 <script setup lang="ts">
-import SalutWrapper from '../../layouts/SalutWrapper.vue'
-import { RouterLink, useRoute } from 'vue-router'
+import { RouterLink } from 'vue-router'
 
+import SalutWrapper from '../../layouts/SalutWrapper.vue'
+import Page01View from './Hansgrohe/Page01.vue'
+import Page02View from './Hansgrohe/Page02.vue'
+import Page03View from './Hansgrohe/Page03.vue'
+import Page04View from './Hansgrohe/Page04.vue'
+import Page05View from './Hansgrohe/Page05.vue'
+import Page06View from './Hansgrohe/Page06.vue'
+
+const pages = [
+    Page01View,
+    Page02View,
+    Page03View,
+    Page04View,
+    Page05View,
+    Page06View
+];
+
+const buttons = [
+    {
+        text: "德國頂級龍頭技術",
+        start: 0,
+        end: 3
+    },
+    {
+        text: "樣品屋",
+        start: 4,
+        end: 5
+    },
+];
 </script>
 
 <template>
-<SalutWrapper>
+<SalutWrapper :pages="pages" :buttons="buttons">
     <template v-slot:header>
         <div class="text-white text-5xl font-bold tracking-wide mr-10">hansgrohe</div>
         <div class="text-white text-xl tracking-wide mr-10">世界頂尖工藝打造</div>
-    </template>
-
-    <template v-slot:button>
-        <RouterLink to="#" class="salut-button active">
-            德國頂級龍頭技術
-        </RouterLink>
-        <RouterLink to="#" class="salut-button">
-            樣品屋
-        </RouterLink>
-    </template>
-
-    <template v-slot:body>
-        <img src="@/assets/images/salut/Hansgrohe/01.jpg" class="object-cover w-full h-full">
     </template>
 </SalutWrapper>
 </template>
 
 <style scoped>
-.salut-button {
-    border: solid 1px white;
-    border-radius: 8px;
-    text-align: center;
-    color: white;
-    padding: 2px 10px;
-    min-width: 125px;
-}
 
-.salut-button.active {
-    background-color: white;
-    color: #006878;
-}
 </style>
