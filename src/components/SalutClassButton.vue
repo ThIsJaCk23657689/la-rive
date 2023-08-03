@@ -1,16 +1,17 @@
 <script setup lang="ts">
 const props = defineProps<{
-	active: boolean | false
+	active: boolean | false,
+	visible: boolean | true,
 }>()
 </script>
 
 <template>
-	<RouterLink to="#" v-if="active" class="border border-white rounded-md text-center 
+	<RouterLink to="#" v-if="active" v-show="visible" class="border border-white rounded-md text-center 
 									px-2 py-1 text-primary-100 bg-neutral-100
 							  		transition-300-out salut-button">
 		<slot></slot>
 	</RouterLink>
-	<RouterLink to="#" v-else class="border border-white rounded-md text-neutral-100 text-center 
+	<RouterLink to="#" v-else v-show="visible" class="border border-white rounded-md text-neutral-100 text-center 
 							  		 px-2 py-1 hover:text-primary-100 hover:bg-neutral-100
 							  		 transition-300-out salut-button">
 		<slot></slot>

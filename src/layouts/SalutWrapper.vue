@@ -55,6 +55,10 @@ function UpdateClassButtonActive() {
     }
 }
 
+function IsButtonVisible(index: number) {
+    return props.buttons[index].start < props.pages.length;
+}
+
 </script>
 
 <template>
@@ -66,7 +70,7 @@ function UpdateClassButtonActive() {
 
     <div class="flex flex-row gap-3">
         <template v-for="(button, index) in buttons">
-            <SalutClassButton :active="IsButtonActive(index)" @click="OnClassButtonClicked(index)">
+            <SalutClassButton :active="IsButtonActive(index)" :visible="IsButtonVisible(index)" @click="OnClassButtonClicked(index)">
                 {{ button.text }}
             </SalutClassButton>
         </template>

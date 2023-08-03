@@ -16,7 +16,7 @@ const menuItems = ref([
         hoverColor: 'hover:text-primary-100',
         subItemTop: 'subItemOffset-1',
         subItems: [
-            { id: 1, path: '/bonjour', name: '生活圈' }
+            { id: 1, name:'bonjour', path: '/bonjour', text: '生活圈' }
         ]  
     },
 	{ 
@@ -28,13 +28,13 @@ const menuItems = ref([
         hoverColor: 'hover:text-primary-200',
         subItemTop: 'subItemOffset-2',
         subItems: [
-            { id: 1, path: '#', name: '3D影片' },
-            { id: 2, path: '/clao', name: '外觀3D' },
-            { id: 3, path: '#', name: '1樓' },
-            { id: 4, path: '#', name: '頂樓' },
-            { id: 5, path: '#', name: '標準層' },
-            { id: 6, path: '#', name: '各戶平面' },
-            { id: 7, path: '#', name: 'B1-B3' }
+            { id: 1, name:'', path: '#', text: '3D影片' },
+            { id: 2, name:'apperance', path: '/clao/apperance', text: '外觀3D' },
+            { id: 3, name:'1-floor', path: '/clao/1-floor', text: '1樓' },
+            { id: 4, name:'roof', path: '/clao/roof', text: '頂樓' },
+            { id: 5, name:'standard', path: '/clao/standard', text: '標準層' },
+            { id: 6, name:'standard-individual', path: '/clao/standard-individual', text: '各戶平面' },
+            { id: 7, name:'basement', path: '/clao/basement', text: 'B1-B3' }
         ]  
     },
 	{ 
@@ -46,17 +46,17 @@ const menuItems = ref([
         hoverColor: 'hover:text-primary-700',
         subItemTop: 'subItemOffset-3',
         subItems: [
-            { id: 1, path: '/salut/panasonic-kitchen', name: '日本 Panasonic 頂級整體廚具' },
-            { id: 2, path: '/salut/rinnai', name: '日本林內 Rinnai 瓦斯爐與抽油煙機' },
-            { id: 3, path: '/salut/bosch', name: '德國 BOSCH 全崁式洗碗機' },
-            { id: 4, path: '/salut/panasonic-bathroom', name: '日本 Panasonic 精品衛浴' },
-            { id: 5, path: '/salut/innoci', name: '德國 innoci 精品衛浴' },
-            { id: 6, path: '/salut/hansgrohe', name: '德國 hansgrohe 頂級衛浴五金龍頭' },
-            { id: 7, path: '/salut/lifegear', name: 'LIFEGEAR 多功能暖風機' },
-            { id: 8, path: '#', name: '力霸精品氣密窗 + 膠合玻璃' },
-            { id: 9, path: '/salut/waferlock', name: 'WAFERLOCK 精品電子鎖' },
-            { id: 10, path: '/salut/lamett', name: '比利時 Lamett 石晶地板' },
-            { id: 11, path: '/salut/daiken', name: '日本大建室內靜音門' }
+            { id: 1, name:'panasonic-kitchen', path: '/salut/panasonic-kitchen', text: '日本 Panasonic 頂級整體廚具' },
+            { id: 2, name:'rinnai', path: '/salut/rinnai', text: '日本林內 Rinnai 瓦斯爐與抽油煙機' },
+            { id: 3, name:'bosch', path: '/salut/bosch', text: '德國 BOSCH 全崁式洗碗機' },
+            { id: 4, name:'panasonic-bathroom', path: '/salut/panasonic-bathroom', text: '日本 Panasonic 精品衛浴' },
+            { id: 5, name:'innoci', path: '/salut/innoci', text: '德國 innoci 精品衛浴' },
+            { id: 6, name:'hansgrohe', path: '/salut/hansgrohe', text: '德國 hansgrohe 頂級衛浴五金龍頭' },
+            { id: 7, name:'lifegear', path: '/salut/lifegear', text: 'LIFEGEAR 多功能暖風機' },
+            { id: 8, name:'', path: '#', text: '力霸精品氣密窗 + 膠合玻璃' },
+            { id: 9, name:'waferlock', path: '/salut/waferlock', text: 'WAFERLOCK 精品電子鎖' },
+            { id: 10, name:'lamett', path: '/salut/lamett', text: '比利時 Lamett 石晶地板' },
+            { id: 11, name:'daiken', path: '/salut/daiken', text: '日本大建室內靜音門' }
         ]  
     },
 	{ 
@@ -68,9 +68,9 @@ const menuItems = ref([
         hoverColor: 'hover:text-black',
         subItemTop: 'subItemOffset-4',
         subItems: [
-            { id: 1, path: '#', name: '理念' },
-            { id: 2, path: '#', name: '業績' },
-            { id: 3, path: '#', name: '團隊' }
+            { id: 1, name:'', path: '#', text: '理念' },
+            { id: 2, name:'', path: '#', text: '業績' },
+            { id: 3, name:'', path: '#', text: '團隊' }
         ]    
     },
 ]);
@@ -86,8 +86,8 @@ const isActive = (itemId: any) => {
     return false;
 };
 
-const isSubActive = (itemId: any) => {
-    return route.path === itemId;
+const isSubActive = (routerName: string) => {
+    return route.name === routerName;
 };
 
 watch(
@@ -98,7 +98,7 @@ watch(
 );
 
 onMounted(() => {
-    console.log(activeSubMenu.value);
+
 })
 
 </script>
@@ -131,11 +131,11 @@ onMounted(() => {
                                 <div v-if="isActive(item.path)" :class="['submenu', item.subItemTop]">
                                     <ul :class="['border-t-4', 'p-2', 'pl-0', item.boderColor]">
                                         <li v-for="subItem in item.subItems" :key="subItem.id">
-                                            <RouterLink v-if="isSubActive(subItem.path)" :to="subItem.path" class="mb-1 block text-black font-bold">
-                                                <span class="submenu-text">{{ subItem.name }}</span>
+                                            <RouterLink v-if="isSubActive(subItem.name)" :to="subItem.path" class="mb-1 block text-black font-bold">
+                                                <span class="submenu-text">{{ subItem.text }}</span>
                                             </RouterLink>
                                             <RouterLink v-else :to="subItem.path" class="text-primary-600 mb-1 block hover:text-black hover:font-bold transition-300-out">
-                                                <span class="submenu-text">{{ subItem.name }}</span>
+                                                <span class="submenu-text">{{ subItem.text }}</span>
                                             </RouterLink>
                                         </li>
                                     </ul>
