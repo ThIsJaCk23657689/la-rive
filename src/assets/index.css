@@ -12,6 +12,16 @@
 	src: url('./fonts/文鼎細黑.ttf') format('truetype');
 } 
 
+@font-face {
+	font-family: '華康儷粗黑';
+	src: url('./fonts/DFLiHei-Bd-WIN-BF-01.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: '華康細黑體';
+	src: url('./fonts/DFHei-Lt-HK-BF-01.ttf') format('truetype');
+} 
+
 body {
 	min-height: 100vh;
 	font-family: 'WenDingThin', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
@@ -42,8 +52,28 @@ body {
 	height: 100vh;
 }
 
+.DF-LiHei-Bd-WIN-BF {
+	font-family: '華康儷粗黑', sans-serif;
+}
+
+.DFHei-Lt-HK-BF {
+	font-family: '華康細黑體', sans-serif;
+}
+
 .transition-300-out {
 	transition: all 300ms ease-out;
+}
+
+.font-size-30 {
+    font-size: 30px;
+}
+
+.font-size-24 {
+    font-size: 24px;
+}
+
+.font-size-20 {
+    font-size: 20px;
 }
 
 @media (max-width: 1536px) {
@@ -51,4 +81,15 @@ body {
 		font-size: 12px;
 	}
 
+	.font-size-30 {
+		font-size: 26px;
+	}
+	
+	.font-size-24 {
+		font-size: 18px;
+	}
+
+	.font-size-20 {
+		font-size: 16px;
+	}
 }

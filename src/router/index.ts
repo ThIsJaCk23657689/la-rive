@@ -27,6 +27,22 @@ import WaferlockView from '@/views/SalutPages/WaferlockView.vue'
 import LamettkView from '@/views/SalutPages/LamettkView.vue'
 import DaikenView from '@/views/SalutPages/DaikenView.vue'
 
+// Bravo Pages
+import AboutUsView from '@/views/BravoPages/AboutUsView.vue'
+
+import TeamsView from '@/views/BravoPages/Teams/TeamsView.vue'
+import ChenView from '@/views/BravoPages/Teams/ChenView.vue'
+import TsaiView from '@/views/BravoPages/Teams/TsaiView.vue'
+
+import CasesView from '@/views/BravoPages/Cases/CasesView.vue'
+import Case01View from '@/views/BravoPages/Cases/Case01View.vue'
+import Case02View from '@/views/BravoPages/Cases/Case02View.vue'
+import Case03View from '@/views/BravoPages/Cases/Case03View.vue'
+import Case04View from '@/views/BravoPages/Cases/Case04View.vue'
+import Case05View from '@/views/BravoPages/Cases/Case05View.vue'
+import Case06View from '@/views/BravoPages/Cases/Case06View.vue'
+import Case07View from '@/views/BravoPages/Cases/Case07View.vue'
+
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
@@ -147,9 +163,86 @@ const router = createRouter({
 					]
 				},
 				{
-					path: 'Bravo',
+					path: 'bravo',
 					name: 'bravo',
 					component: BravoView,
+					redirect: { name: 'aboutus' },
+					children: [
+						{
+							path: 'aboutus',
+							name: 'aboutus',
+							component: AboutUsView,
+						},
+						{
+							path: 'teams',
+							name: 'teams',
+							redirect: { name: 'teams-menu' },
+							children: [
+								{
+									path: 'menu',
+									name: 'teams-menu',
+									component: TeamsView,
+								},
+								{
+									path: 'chen',
+									name: 'teams-chen',
+									component: ChenView,
+								},
+								{
+									path: 'tsai',
+									name: 'teams-tsai',
+									component: TsaiView,
+								},
+							]
+						},
+						{
+							path: 'cases',
+							name: 'cases',
+							redirect: { name: 'cases-menu' },
+							children: [
+								{
+									path: 'menu',
+									name: 'cases-menu',
+									component: CasesView,
+								},
+								{
+									path: 'case01',
+									name: 'cases-case01',
+									component: Case01View,
+								},
+								{
+									path: 'case02',
+									name: 'cases-case02',
+									component: Case02View,
+								},
+								{
+									path: 'case03',
+									name: 'cases-case03',
+									component: Case03View,
+								},
+								{
+									path: 'case04',
+									name: 'cases-case04',
+									component: Case04View,
+								},
+								{
+									path: 'case05',
+									name: 'cases-case05',
+									component: Case05View,
+								},
+								{
+									path: 'case06',
+									name: 'cases-case06',
+									component: Case06View,
+								},
+								{
+									path: 'case07',
+									name: 'cases-case07',
+									component: Case07View,
+								},
+							]
+						},
+					]
 				},
 
 			]

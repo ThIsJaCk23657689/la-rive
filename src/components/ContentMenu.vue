@@ -68,9 +68,9 @@ const menuItems = ref([
         hoverColor: 'hover:text-black',
         subItemTop: 'subItemOffset-4',
         subItems: [
-            { id: 1, name:'', path: '#', text: '理念' },
-            { id: 2, name:'', path: '#', text: '業績' },
-            { id: 3, name:'', path: '#', text: '團隊' }
+            { id: 1, name:'aboutus', path: '/bravo/aboutus', text: '理念' },
+            { id: 2, name:'teams', path: '/bravo/teams', text: '專業團隊' },
+            { id: 3, name:'cases', path: '/bravo/cases', text: '熱銷個案' }
         ]    
     },
 ]);
@@ -87,7 +87,15 @@ const isActive = (itemId: any) => {
 };
 
 const isSubActive = (routerName: string) => {
-    return route.name === routerName;
+    const name: any = route.name;
+    const parts = name.split("-");
+
+    let result = route.name;
+    if (parts.length > 1) {
+        result = parts[0];
+    }
+
+    return result === routerName;
 };
 
 watch(
