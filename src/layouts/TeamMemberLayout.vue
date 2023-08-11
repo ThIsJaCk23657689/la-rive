@@ -27,7 +27,7 @@ const props = defineProps<{
     <div class="h-full area-left flex flex-col justify-between">
         
         <template v-for="(image, index) in person.workImages" :key="index">
-            <div style="height: 32%;">
+            <div class="grow">
                 <img :src="image.url" alt="" class="object-cover h-full">
             </div>
         </template>

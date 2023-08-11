@@ -18,7 +18,10 @@ const person = {
     awards: [
         "2022第24屆國家建築金質獎",
     ],
-    workImages: []
+    workImages: [
+        { url: new URL('@/assets/images/teams/01-01.png', import.meta.url).href },
+        { url: new URL('@/assets/images/teams/01-02.png', import.meta.url).href },
+    ]
 };
 
 const switchLink = {
