@@ -6,7 +6,7 @@
 <div class="w-full h-full carousel-slide">
     <img src="@/assets/images/salut/Rinnai/01.jpg" class="object-cover h-full">
     <div class="card text-white top">
-        藏式強化玻璃 <br/>
+        隱藏式強化玻璃 <br/>
         導煙設計排油煙機
     </div>
     <div class="card text-white bottom">

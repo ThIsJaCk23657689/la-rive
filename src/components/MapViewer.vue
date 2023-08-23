@@ -177,10 +177,19 @@ function closeModal() {
     position: absolute;
     width: 25px;
     height: 25px;
-    background-color: #f6921e;
     border-radius: 50%;
     top: 0%;
     left: 0%;
+    animation: flash 0.8s infinite alternate ease-out;
+}
+
+@keyframes flash {
+    from {
+        background-color: #f6921e;
+    }
+    to {
+        background-color: #fcfbed;
+    }
 }
 
 .spot.disable {

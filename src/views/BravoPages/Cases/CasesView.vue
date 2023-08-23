@@ -8,12 +8,12 @@ const currentPageIndex = ref(0);
 const MenuItems = [
     [
         { 
-            link: { name: 'cases-case01' },
+            link: { name: '' },
             url: new URL('@/assets/images/cases/01.png', import.meta.url).href, 
             name: '海悅' 
         },
         { 
-            link: { name: 'cases-case02' },
+            link: { name: '' },
             url: new URL('@/assets/images/cases/02.png', import.meta.url).href, 
             name: '澄品' 
         },
@@ -96,7 +96,15 @@ function NextPage() {
                     <div class="grid grid-cols-2 gap-9">
 
                         <template v-for="(item, index) in MenuItems[0]" :key="index">
-                            <RouterLink :to="item.link" class="mb-10 flex flex-col items-center">
+                            <div v-if="item.link.name == ''" class="mb-10 flex flex-col items-center">
+                                <div>
+                                    <img :src="item.url" alt="" class="object-cover">
+                                </div>
+                                <div class="mt-4 border-x px-4">
+                                    <span class="text-white DF-LiHei-Bd-WIN-BF text-xl">{{ item.name }}</span>
+                                </div>
+                            </div>
+                            <RouterLink v-else :to="item.link" class="mb-10 flex flex-col items-center">
                                 <div>
                                     <img :src="item.url" alt="" class="object-cover">
                                 </div>

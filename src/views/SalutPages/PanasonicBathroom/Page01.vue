@@ -7,14 +7,13 @@
     <video class="video" controls>
         <source src="@/assets/images/salut/Panasonic-bathroom/toilet.webm" type="video/webm" />
     </video>
-    <img src="@/assets/images/salut/Panasonic-bathroom/02.jpg" class="object-cover w-full h-full">
 </div>
 </template>
 
 <style scoped>
 .video {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     position: absolute;
 }
