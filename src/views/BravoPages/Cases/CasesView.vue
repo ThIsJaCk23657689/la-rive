@@ -97,16 +97,20 @@ function NextPage() {
 
                         <template v-for="(item, index) in MenuItems[0]" :key="index">
                             <div v-if="item.link.name == ''" class="mb-10 flex flex-col items-center">
-                                <div>
-                                    <img :src="item.url" alt="" class="object-cover">
+                                <div class="overflow-hidden rounded-lg">
+                                    <Transition name="scale" appear>
+                                        <img :src="item.url" alt="" class="object-cover caseImage">
+                                    </Transition>
                                 </div>
                                 <div class="mt-4 border-x px-4">
                                     <span class="text-white DF-LiHei-Bd-WIN-BF text-xl">{{ item.name }}</span>
                                 </div>
                             </div>
                             <RouterLink v-else :to="item.link" class="mb-10 flex flex-col items-center">
-                                <div>
-                                    <img :src="item.url" alt="" class="object-cover">
+                                <div class="overflow-hidden rounded-lg">
+                                    <Transition name="scale" appear>
+                                        <img :src="item.url" alt="" class="object-cover caseImage">
+                                    </Transition>
                                 </div>
                                 <div class="mt-4 border-x px-4">
                                     <span class="text-white DF-LiHei-Bd-WIN-BF text-xl">{{ item.name }}</span>
@@ -133,8 +137,10 @@ function NextPage() {
 
                         <template v-for="(item, index) in MenuItems[1]" :key="index">
                             <RouterLink :to="item.link" class="mb-10 flex flex-col items-center">
-                                <div class="card">
-                                    <img :src="item.url" alt="" class="object-cover w-full h-full">
+                                <div class="card overflow-hidden rounded-lg">
+                                    <Transition name="scale2" appear>
+                                        <img :src="item.url" alt="" class="object-cover w-full h-full caseImage2">
+                                    </Transition>
                                 </div>
                                 <div class="mt-4 border-x border-black px-4">
                                     <span class="text-black DF-LiHei-Bd-WIN-BF text-xl">{{ item.name }}</span>
@@ -228,6 +234,24 @@ function NextPage() {
     height: 7%;
 }
 
+.caseImage {
+    transform: scale(1.05);
+    transition: all 2.0s ease-out;
+}
+
+.caseImage:hover {
+    transform: scale(1.0);
+}
+
+.caseImage2 {
+    transform: scale(1.02);
+    transition: all 2.0s ease-out;
+}
+
+.caseImage2:hover {
+    transform: scale(1.0);
+}
+
 
 /* ========================== */
 .slide-fade-enter-active {
@@ -244,5 +268,26 @@ function NextPage() {
 	opacity: 0;
 }
 
+/* ========================== */
+.scale-enter-to, .scale-leave-from {
+    transform: scale(1.05);
+}
+.scale-enter-active, .scale-leave-active {
+    transition: all 2.0s ease-out;
+}
+.scale-enter-from, .scale-leave-to {
+    transform: scale(1.0);
+}
+
+/* ========================== */
+.scale2-enter-to, .scale2-leave-from {
+    transform: scale(1.02);
+}
+.scale2-enter-active, .scale2-leave-active {
+    transition: all 2.0s ease-out;
+}
+.scale2-enter-from, .scale2-leave-to {
+    transform: scale(1.0);
+}
 
 </style>

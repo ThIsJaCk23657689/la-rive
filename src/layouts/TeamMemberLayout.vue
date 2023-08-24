@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref  } from 'vue';
+import { ref, onMounted } from 'vue';
 import { ArrowLongLeftIcon } from '@heroicons/vue/24/solid';
 import { RouterLink } from 'vue-router'
 
@@ -20,6 +20,31 @@ const props = defineProps<{
     }
 }>()
 
+const visibleBioItems = ref<string[]>([]);
+let currentBioIndex = 0;
+
+const visibleAwardItems = ref<string[]>([]);
+let currentAwardIndex = 0;
+
+function showBioNextItem() {
+    if (currentBioIndex < props.person.bio.length) {
+        visibleBioItems.value.push( props.person.bio[currentBioIndex] );
+        currentBioIndex++;
+    }
+}
+
+function showAwardNextItem() {
+    if (currentAwardIndex < props.person.bio.length) {
+        visibleAwardItems.value.push( props.person.awards[currentAwardIndex] );
+        currentAwardIndex++;
+    }
+}
+
+onMounted(() => {
+    showBioNextItem();
+    showAwardNextItem();
+});
+
 </script>
 
 <template>
@@ -27,8 +52,10 @@ const props = defineProps<{
     <div class="h-full area-left flex flex-col justify-between">
         
         <template v-for="(image, index) in person.workImages" :key="index">
-            <div class="grow">
-                <img :src="image.url" alt="" class="object-cover h-full">
+            <div class="grow overflow-hidden">
+                <Transition name="scale" appear>
+                    <img :src="image.url" alt="" class="object-cover h-full work">
+                </Transition>
             </div>
         </template>
 
@@ -36,9 +63,12 @@ const props = defineProps<{
     <div class="h-full area-middle flex flex-col">
 
         <div>
-            <div class="overflow-hidden w-60">
-                <img :src="person.avatar" alt="" class="object-cover w-full" />
-            </div>
+            <Transition name="slide-fade-down" appear>
+                <div class="overflow-hidden w-60">
+                    <img :src="person.avatar" alt="" class="object-cover w-full" />
+                </div>
+            </Transition>
+
             <div class="mt-10 text-white DF-LiHei-Bd-WIN-BF">
                 <span class="font-size-24 mr-2">{{ person.company }}</span><br/>
                 <span class="font-size-24 mr-2">{{ person.name }}</span> 
@@ -46,15 +76,20 @@ const props = defineProps<{
             </div>
             <div class="text-white mt-8">
                 <span>學經歷</span><br/>
-                <template v-for="(line, index) in person.bio" :key="index">
-                    <span>{{ line }}</span><br/>
-                </template>
+                <TransitionGroup name="fade" tag="ul" @after-enter="showBioNextItem">
+                    <li v-for="(line, index) in visibleBioItems" :key="index">
+                        {{ line }}
+                    </li>
+                </TransitionGroup>
+                
             </div>
             <div class="text-white mt-8">
                 <span>獲獎</span><br/>
-                <template v-for="(line, index) in person.awards" :key="index">
-                    <span>{{ line }}</span><br/>
-                </template>
+                <TransitionGroup name="fade" tag="ul" @after-enter="showAwardNextItem">
+                    <li v-for="(line, index) in visibleAwardItems" :key="index">
+                        {{ line }}
+                    </li>
+                </TransitionGroup>
             </div>
         </div>
 
@@ -105,4 +140,46 @@ const props = defineProps<{
     bottom: 7%;
     left: 17%;
 }
+
+.work {
+    transform: scale(1.1);
+    transition: all 1.0s ease-out;
+}
+
+.work:hover {
+    transform: scale(1.0);
+}
+
+
+/* ========================== */
+.slide-fade-down-enter-active, .slide-fade-down-leave-active {
+	transition: all 1.8s ease-out;
+}
+
+.slide-fade-down-enter-from, .slide-fade-down-leave-to {
+	transform: translateY(-60px);
+	opacity: 0;
+}
+
+
+/* ========================== */
+.fade-enter-active, .fade-leave-active {
+    transition: all 0.5s ease-out;
+}
+.fade-enter-from, .fade-leave-to {
+    opacity: 0;
+}
+
+/* ========================== */
+.scale-enter-to, .scale-leave-from {
+    transform: scale(1.1);
+}
+.scale-enter-active, .scale-leave-active {
+    transition: all 2.0s ease-out;
+}
+.scale-enter-from, .scale-leave-to {
+    transform: scale(1.0);
+}
+
+
 </style>
