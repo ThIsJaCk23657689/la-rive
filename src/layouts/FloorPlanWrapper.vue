@@ -2,11 +2,13 @@
 import { ref } from 'vue';
 import IconMagnifyingGlassPlus from '../components/icons/IconMagnifyingGlassPlus.vue';
 import IconMagnifyingGlassMinus from '../components/icons/IconMagnifyingGlassMinus.vue';
+import FloorPlanBackground from '@/components/icons/FloorPlanBackground.vue';
 
 const props = defineProps<{
     imageUrl: string,
     title: string,
     isFloor: boolean | false,
+    hasBg?: boolean | false,
     buttons?: Array<{
         text: string,
         isActive: boolean | false,
@@ -23,6 +25,8 @@ const lastMouseX = ref(0);          // 上次滑鼠 X 座標
 const lastMouseY = ref(0);          // 上次滑鼠 Y 座標
 const translateX = ref(0);          // X 軸位移
 const translateY = ref(0);          // Y 軸位移
+
+const currentHoverType = ref(0);    // 紀錄現在 hover 哪一個房型
 
 function zoomIn() {
     if ( scale.value < 5.0 ) {
@@ -82,13 +86,20 @@ function reset() {
     translateY.value = 0;
 }
 
+// 0 代表沒 hover；從 1 開始算
+function hoverRoom(index: number) {
+    currentHoverType.value = index;
+
+    console.log('hoverRoom', index);
+}
+
 </script>
 
 <template>
 <div class="flex flex-row relative w-full h-full">
 
     <div class="main relative h-full bg-primary-800 overflow-hidden">
-        <div class="w-full h-full relative" :style="{
+        <div class="w-full h-full flex justify-center items-center relative" :style="{
                 transform: `scale(${scale}) translate(${translateX}px, ${translateY}px)`,
                 transition: dragging ? 'none' : 'transform 0.3s ease-out'
             }"
@@ -98,7 +109,21 @@ function reset() {
             @mouseleave="stopDragging"
             @mouseenter="handleMouseEnter"
             @wheel="handleWheel">
-            <img :src="imageUrl" alt="Image" class="object-cover w-full h-full" />
+
+            <div v-if="hasBg" class="w-4/5 relative">
+                <FloorPlanBackground class="w-full absolute inset-0" :current-hover-index="currentHoverType" style="padding-right: 16px; padding-top: 6px;"></FloorPlanBackground>
+                <img :src="imageUrl" alt="Image" class="object-cover relative z-10"/>
+            </div>
+            <div v-else class="w-full h-full flex justify-center items-center">
+                <img :src="imageUrl" alt="Image" class="object-cover" />
+            </div>
+
+            <div v-if="hasBg" class="w-full h-full absolute top-0 left-0 z-20">
+                <RouterLink :to="{ name: 'standard-individual', params: { type: 'A' } }" class="absolute a-part" @mouseleave="hoverRoom(0)" @mouseenter="hoverRoom(1)"></RouterLink>
+                <RouterLink :to="{ name: 'standard-individual', params: { type: 'B' } }" class="absolute b-part" @mouseleave="hoverRoom(0)" @mouseenter="hoverRoom(2)"></RouterLink>
+                <RouterLink :to="{ name: 'standard-individual', params: { type: 'C' } }" class="absolute c-part" @mouseleave="hoverRoom(0)" @mouseenter="hoverRoom(3)"></RouterLink>
+                <RouterLink :to="{ name: 'standard-individual', params: { type: 'D' } }" class="absolute d-part" @mouseleave="hoverRoom(0)" @mouseenter="hoverRoom(4)"></RouterLink>
+            </div>
 
             <slot></slot>
 
@@ -230,6 +255,40 @@ function reset() {
     font-size: 16px;
     border: 2px solid #fff;
     border-radius: 20px;
+}
+
+
+
+
+
+
+
+.a-part {
+    width: 40%;
+    height: 32%;
+    top: 56%;
+    left: 51%;
+}
+
+.b-part {
+    width: 43%;
+    height: 40%;
+    top: 48%;
+    left: 8%;
+}
+
+.c-part {
+    width: 43%;
+    height: 36%;
+    top: 12%;
+    left: 8%;
+}
+
+.d-part {
+    width: 40%;
+    height: 28%;
+    top: 12%;
+    left: 51%;
 }
 
 </style>
