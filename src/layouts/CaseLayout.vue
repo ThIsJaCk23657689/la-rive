@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { RouterLink } from 'vue-router';
 import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/vue/24/solid';
+import RouteButton from '@/components/RouteButton.vue';
 
 const props = defineProps<{
     imageUrls: Array<string>,
@@ -58,9 +58,9 @@ function prevImage() {
             <div class="bg-primary-100 h-1/5 grid grid-cols-3">
                 <div class="flex justify-center items-center">
                     <Transition name="fade" appear>
-                        <RouterLink :to="{ name: 'cases-menu' }" class="text-white font-bold text-6xl">
+                        <RouteButton :to="{ name: 'cases-menu' }" class="text-white font-bold text-6xl">
                             {{ mainTitle }}
-                        </RouterLink>
+                        </RouteButton>
                     </Transition>
                 </div>
                 <div class="bg-brown-500 text-white flex justify-start items-center">
@@ -83,9 +83,9 @@ function prevImage() {
             <div class="bg-primary-100 h-1/5 grid grid-cols-2">
                 <div class="flex justify-center items-center">
                     <Transition name="fade" appear>
-                        <RouterLink :to="{ name: 'cases-menu' }" class="text-white text-6xl">
+                        <RouteButton :to="{ name: 'cases-menu' }" class="text-white text-6xl">
                             {{ mainTitle }}
-                        </RouterLink>   
+                        </RouteButton>   
                     </Transition>
                 </div>
                 <div class="bg-brown-500 text-white flex justify-start items-center">

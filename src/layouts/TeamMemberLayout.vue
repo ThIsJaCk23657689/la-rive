@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { ArrowLongLeftIcon } from '@heroicons/vue/24/solid';
-import { RouterLink } from 'vue-router'
+import RouteButton from '@/components/RouteButton.vue';
 
 const props = defineProps<{
     person: {
@@ -95,13 +95,13 @@ onMounted(() => {
 
     </div>
     <div class="h-full area-right bg-primary-100 relative">
-        <RouterLink :to="switchLink.router" class="switch-button">
+        <RouteButton :to="switchLink.router" class="switch-button">
             <span class="text-white DF-LiHei-Bd-WIN-BF font-size-24">{{ switchLink.name }}</span>
-        </RouterLink>
-        <RouterLink :to="{ name: 'teams-menu' }" class="menu-button">
+        </RouteButton>
+        <RouteButton :to="{ name: 'teams-menu' }" class="menu-button">
             <span class="text-white DF-LiHei-Bd-WIN-BF text-3xl vertical">{{ person.title }}</span>
             <ArrowLongLeftIcon class="text-white"></ArrowLongLeftIcon>
-        </RouterLink>
+        </RouteButton>
     </div>
 </div>
 </template>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watch, onMounted  } from 'vue';
-import { RouterLink, useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
+import RouteButton from '@/components/RouteButton.vue';
 
 const activeSubMenu = ref(null);
 
@@ -124,7 +125,7 @@ onMounted(() => {
                 <ul>
                     <template v-for="item in menuItems">
                         <li class="item">
-                            <RouterLink :to="item.path" :class="['item-link', 'text-primary-500', item.boderColor, item.hoverColor]" @mouseover="showSubMenu(item.path)">
+                            <RouteButton :to="item.path" :class="['item-link', 'text-primary-500', 'text-start', item.boderColor, item.hoverColor]" @mouseover="showSubMenu(item.path)">
                                 <div class="flex flex-col">
                                     <span class="text-2xl font-semibold tracking-wide english-font leading-none">
                                         {{ item.englishText }}
@@ -133,18 +134,18 @@ onMounted(() => {
                                         {{ item.chineseText }}
                                     </span>
                                 </div>
-                            </RouterLink>
+                            </RouteButton>
 
                             <transition name="slide-silde-down">
                                 <div v-if="isActive(item.path)" :class="['submenu', item.subItemTop]">
                                     <ul :class="['border-t-4', 'p-2', 'pl-0', item.boderColor]">
                                         <li v-for="subItem in item.subItems" :key="subItem.id">
-                                            <RouterLink v-if="isSubActive(subItem.name)" :to="subItem.path" class="mb-1 block text-black font-bold">
+                                            <RouteButton v-if="isSubActive(subItem.name)" :to="subItem.path" class="mb-1 block text-black font-bold text-start">
                                                 <span class="submenu-text">{{ subItem.text }}</span>
-                                            </RouterLink>
-                                            <RouterLink v-else :to="subItem.path" class="text-primary-600 mb-1 block hover:text-black hover:font-bold transition-300-out">
+                                            </RouteButton>
+                                            <RouteButton v-else :to="subItem.path" class="text-primary-600 mb-1 block hover:text-black hover:font-bold transition-300-out text-start">
                                                 <span class="submenu-text">{{ subItem.text }}</span>
-                                            </RouterLink>
+                                            </RouteButton>
                                         </li>
                                     </ul>
                                 </div>
@@ -155,9 +156,9 @@ onMounted(() => {
                 </ul>
 
                 <div class="logo">
-                    <RouterLink to="/">
+                    <RouteButton to="/">
                         <img src="@/assets/images/index_larive-logo-white.png" alt="" class="">
-                    </RouterLink>
+                    </RouteButton>
                 </div>
 
             </div>

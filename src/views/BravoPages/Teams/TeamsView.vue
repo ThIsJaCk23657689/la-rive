@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref  } from 'vue';
-import { RouterLink } from 'vue-router'
+import RouteButton from '@/components/RouteButton.vue';
 
 const people = [
     {
@@ -31,7 +30,7 @@ const people = [
             <template v-for="(person, index) in people" :key="index">
                 <Transition :name="person.transition" appear>
                     <div class="person-card">
-                        <RouterLink :to="person.router" class="">
+                        <RouteButton :to="person.router" class="">
                             <div class="overflow-hidden rounded-2xl">
                                 <img :src="person.avatar" alt="" class="object-cover w-full" />
                             </div>
@@ -43,7 +42,7 @@ const people = [
                                 <span class="font-size-30 mr-2">{{ person.name }}</span> 
                                 <span class="text-xl mb-1">{{ person.position }}</span>
                             </div>
-                        </RouterLink>
+                        </RouteButton>
                     </div>
                 </Transition>
             </template>

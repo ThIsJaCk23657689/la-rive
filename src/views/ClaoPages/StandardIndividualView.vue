@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue';
-import { RouterLink } from 'vue-router'
 import FloorPlanWrapper from '@/layouts/FloorPlanWrapper.vue';
+import RouteButton from '@/components/RouteButton.vue';
 
 const props = defineProps(['type']);
 
@@ -60,10 +60,10 @@ watch(() => props.type, () => {
             <div class="little-plan-container">
                 <img :src="standards[currentType].buttonImg" alt="Image" class="object-cover little-plan" />
                 
-                <RouterLink :to="{ name: 'standard-individual', params: { type: 'A' } }" class="absolute a-part"></RouterLink>
-                <RouterLink :to="{ name: 'standard-individual', params: { type: 'B' } }" class="absolute b-part"></RouterLink>
-                <RouterLink :to="{ name: 'standard-individual', params: { type: 'C' } }" class="absolute c-part"></RouterLink>
-                <RouterLink :to="{ name: 'standard-individual', params: { type: 'D' } }" class="absolute d-part"></RouterLink>
+                <RouteButton :to="{ name: 'standard-individual', params: { type: 'A' } }" class="absolute a-part"></RouteButton>
+                <RouteButton :to="{ name: 'standard-individual', params: { type: 'B' } }" class="absolute b-part"></RouteButton>
+                <RouteButton :to="{ name: 'standard-individual', params: { type: 'C' } }" class="absolute c-part"></RouteButton>
+                <RouteButton :to="{ name: 'standard-individual', params: { type: 'D' } }" class="absolute d-part"></RouteButton>
             </div>
         </template>
 

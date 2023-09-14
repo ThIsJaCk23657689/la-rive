@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import RouteButton from '@/components/RouteButton.vue';
 
 const props = defineProps({
 	path: {
@@ -12,7 +12,7 @@ const props = defineProps({
 
 <template>
 	<li class="item">
-		<RouterLink :to="path" class="block border-l-4 px-2
+		<RouteButton :to="path" class="text-start block border-l-4 px-2
 			border-primary-500 text-primary-500 hover:text-primary-100 hover:border-primary-100
 			transition ease-out duration-300 overflow-hidden">
 			
@@ -25,7 +25,7 @@ const props = defineProps({
 				</span>
 			</div>
 			
-		</RouterLink>
+		</RouteButton>
 	</li>
 </template>
   

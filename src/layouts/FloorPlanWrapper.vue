@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import IconMagnifyingGlassPlus from '../components/icons/IconMagnifyingGlassPlus.vue';
 import IconMagnifyingGlassMinus from '../components/icons/IconMagnifyingGlassMinus.vue';
 import FloorPlanBackground from '@/components/icons/FloorPlanBackground.vue';
+import RouteButton from '@/components/RouteButton.vue';
 
 const props = defineProps<{
     imageUrl: string,
@@ -119,10 +120,10 @@ function hoverRoom(index: number) {
             </div>
 
             <div v-if="hasBg" class="w-full h-full absolute top-0 left-0 z-20">
-                <RouterLink :to="{ name: 'standard-individual', params: { type: 'A' } }" class="absolute a-part" @mouseleave="hoverRoom(0)" @mouseenter="hoverRoom(1)"></RouterLink>
-                <RouterLink :to="{ name: 'standard-individual', params: { type: 'B' } }" class="absolute b-part" @mouseleave="hoverRoom(0)" @mouseenter="hoverRoom(2)"></RouterLink>
-                <RouterLink :to="{ name: 'standard-individual', params: { type: 'C' } }" class="absolute c-part" @mouseleave="hoverRoom(0)" @mouseenter="hoverRoom(3)"></RouterLink>
-                <RouterLink :to="{ name: 'standard-individual', params: { type: 'D' } }" class="absolute d-part" @mouseleave="hoverRoom(0)" @mouseenter="hoverRoom(4)"></RouterLink>
+                <RouteButton :to="{ name: 'standard-individual', params: { type: 'A' } }" class="absolute a-part" @mouseleave="hoverRoom(0)" @mouseenter="hoverRoom(1)"></RouteButton>
+                <RouteButton :to="{ name: 'standard-individual', params: { type: 'B' } }" class="absolute b-part" @mouseleave="hoverRoom(0)" @mouseenter="hoverRoom(2)"></RouteButton>
+                <RouteButton :to="{ name: 'standard-individual', params: { type: 'C' } }" class="absolute c-part" @mouseleave="hoverRoom(0)" @mouseenter="hoverRoom(3)"></RouteButton>
+                <RouteButton :to="{ name: 'standard-individual', params: { type: 'D' } }" class="absolute d-part" @mouseleave="hoverRoom(0)" @mouseenter="hoverRoom(4)"></RouteButton>
             </div>
 
             <slot></slot>

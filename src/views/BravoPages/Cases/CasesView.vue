@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { RouterLink } from 'vue-router';
 import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/vue/24/solid';
+import RouteButton from '@/components/RouteButton.vue';
 
 const currentPageIndex = ref(0);
 
@@ -136,7 +136,7 @@ function NextPage() {
                     <div class="grid grid-cols-3 gap-9">
 
                         <template v-for="(item, index) in MenuItems[1]" :key="index">
-                            <RouterLink :to="item.link" class="mb-10 flex flex-col items-center">
+                            <RouteButton :to="item.link" class="mb-10 flex flex-col items-center">
                                 <div class="card overflow-hidden rounded-lg">
                                     <Transition name="scale2" appear>
                                         <img :src="item.url" alt="" class="object-cover w-full h-full caseImage2">
@@ -145,7 +145,7 @@ function NextPage() {
                                 <div class="mt-4 border-x border-black px-4">
                                     <span class="text-black DF-LiHei-Bd-WIN-BF text-xl">{{ item.name }}</span>
                                 </div>
-                            </RouterLink>
+                            </RouteButton>
                         </template>
 
                     </div>
