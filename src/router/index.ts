@@ -67,9 +67,9 @@ const router = createRouter({
 					redirect: { name: 'apperance' },
 					children: [
 						{
-							path: '3D-video',
-							name: '3D-video',
-							component: PanasonicKitchenView,
+							path: '3Dvideo',
+							name: '3Dvideo',
+							component: ApperanceView,
 						},
 						{
 							path: 'apperance',
@@ -77,8 +77,8 @@ const router = createRouter({
 							component: ApperanceView,
 						},
 						{
-							path: '1-floor',
-							name: '1-floor',
+							path: '1floor',
+							name: '1floor',
 							component: FirstFloorView,
 						},
 						{
@@ -92,8 +92,8 @@ const router = createRouter({
 							component: StandardView,
 						},
 						{
-							path: 'standard-individual/:type?',
-							name: 'standard-individual',
+							path: 'standardindividual/:type?',
+							name: 'standardindividual',
 							component: StandardIndividualView,
 							props: true,
 						},
@@ -108,11 +108,11 @@ const router = createRouter({
 					path: 'salut',
 					name: 'salut',
 					component: SalutView,
-					redirect: { name: 'panasonic-kitchen' },
+					redirect: { name: 'panasonickitchen' },
 					children: [
 						{
-							path: 'panasonic-kitchen',
-							name: 'panasonic-kitchen',
+							path: 'panasonickitchen',
+							name: 'panasonickitchen',
 							component: PanasonicKitchenView,
 						},
 						{
@@ -126,8 +126,8 @@ const router = createRouter({
 							component: BoschView,
 						},
 						{
-							path: 'panasonic-bathroom',
-							name: 'panasonic-bathroom',
+							path: 'panasonicbathroom',
+							name: 'panasonicbathroom',
 							component: PanasonicBathroomView,
 						},
 						{

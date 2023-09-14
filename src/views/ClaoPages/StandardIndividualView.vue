@@ -60,10 +60,10 @@ watch(() => props.type, () => {
             <div class="little-plan-container">
                 <img :src="standards[currentType].buttonImg" alt="Image" class="object-cover little-plan" />
                 
-                <RouteButton :to="{ name: 'standard-individual', params: { type: 'A' } }" class="absolute a-part"></RouteButton>
-                <RouteButton :to="{ name: 'standard-individual', params: { type: 'B' } }" class="absolute b-part"></RouteButton>
-                <RouteButton :to="{ name: 'standard-individual', params: { type: 'C' } }" class="absolute c-part"></RouteButton>
-                <RouteButton :to="{ name: 'standard-individual', params: { type: 'D' } }" class="absolute d-part"></RouteButton>
+                <RouteButton :to="{ name: 'standardindividual', params: { type: 'A' } }" class="absolute a-part"></RouteButton>
+                <RouteButton :to="{ name: 'standardindividual', params: { type: 'B' } }" class="absolute b-part"></RouteButton>
+                <RouteButton :to="{ name: 'standardindividual', params: { type: 'C' } }" class="absolute c-part"></RouteButton>
+                <RouteButton :to="{ name: 'standardindividual', params: { type: 'D' } }" class="absolute d-part"></RouteButton>
             </div>
         </template>
 

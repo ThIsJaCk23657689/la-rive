@@ -29,12 +29,12 @@ const menuItems = ref([
         hoverColor: 'hover:text-primary-200',
         subItemTop: 'subItemOffset-2',
         subItems: [
-            { id: 1, name:'', path: '#', text: '3D影片' },
+            { id: 1, name:'3Dvideo', path: '/clao/3Dvideo', text: '3D影片' },
             { id: 2, name:'apperance', path: '/clao/apperance', text: '外觀3D' },
-            { id: 3, name:'1-floor', path: '/clao/1-floor', text: '1樓' },
+            { id: 3, name:'1floor', path: '/clao/1floor', text: '1樓' },
             { id: 4, name:'roof', path: '/clao/roof', text: '頂樓' },
             { id: 5, name:'standard', path: '/clao/standard', text: '標準層' },
-            { id: 6, name:'standard-individual', path: '/clao/standard-individual', text: '各戶平面' },
+            { id: 6, name:'standardindividual', path: '/clao/standardindividual', text: '各戶平面' },
             { id: 7, name:'basement', path: '/clao/basement', text: 'B1-B3' }
         ]  
     },
@@ -47,10 +47,10 @@ const menuItems = ref([
         hoverColor: 'hover:text-primary-700',
         subItemTop: 'subItemOffset-3',
         subItems: [
-            { id: 1, name:'panasonic-kitchen', path: '/salut/panasonic-kitchen', text: '日本 Panasonic 頂級整體廚具' },
+            { id: 1, name:'panasonickitchen', path: '/salut/panasonickitchen', text: '日本 Panasonic 頂級整體廚具' },
             { id: 2, name:'rinnai', path: '/salut/rinnai', text: '日本林內 Rinnai 瓦斯爐與抽油煙機' },
             { id: 3, name:'bosch', path: '/salut/bosch', text: '德國 BOSCH 全崁式洗碗機' },
-            { id: 4, name:'panasonic-bathroom', path: '/salut/panasonic-bathroom', text: '日本 Panasonic 精品衛浴' },
+            { id: 4, name:'panasonicbathroom', path: '/salut/panasonicbathroom', text: '日本 Panasonic 精品衛浴' },
             { id: 5, name:'innoci', path: '/salut/innoci', text: '德國 innoci 精品衛浴' },
             { id: 6, name:'hansgrohe', path: '/salut/hansgrohe', text: '德國 hansgrohe 頂級衛浴五金龍頭' },
             { id: 7, name:'lifegear', path: '/salut/lifegear', text: 'LIFEGEAR 多功能暖風機' },
