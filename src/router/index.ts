@@ -8,6 +8,7 @@ import SalutView from '@/views/SalutView.vue'
 import BravoView from '@/views/BravoView.vue'
 
 // Clao Pages
+import ThreeDVideoView from '@/views/ClaoPages/ThreeDVideoView.vue'
 import ApperanceView from '@/views/ClaoPages/ApperanceView.vue'
 import FirstFloorView from '@/views/ClaoPages/FirstFloorView.vue'
 import RoofView from '@/views/ClaoPages/RoofView.vue'
@@ -69,7 +70,7 @@ const router = createRouter({
 						{
 							path: '3Dvideo',
 							name: '3Dvideo',
-							component: ApperanceView,
+							component: ThreeDVideoView,
 						},
 						{
 							path: 'apperance',

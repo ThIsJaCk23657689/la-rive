@@ -7,7 +7,7 @@ const props = defineProps({
         default: null,
     },
     class: {
-        type: String,
+        type: [String, Array],
         default: '',
     },
 });
