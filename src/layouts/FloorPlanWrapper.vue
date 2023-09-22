@@ -30,7 +30,7 @@ const translateY = ref(0);          // Y 軸位移
 const currentHoverType = ref(0);    // 紀錄現在 hover 哪一個房型
 
 function zoomIn() {
-    if ( scale.value < 5.0 ) {
+    if ( scale.value < 3.0 ) {
         scale.value *= 1.2;
     }
 }

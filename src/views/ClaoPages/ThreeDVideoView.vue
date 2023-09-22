@@ -5,7 +5,7 @@
 <template>
 <div class="w-full h-full carousel-slide relative flex justify-center items-center">
     <video class="video" controls>
-        <source src="@/assets/images/la-rive.webm" type="video/webm" />
+        <source src="@/assets/images/la-rive.mp4" type="video/webm" />
     </video>
 </div>
 </template>
