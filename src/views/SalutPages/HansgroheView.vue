@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
-
 import SalutWrapper from '../../layouts/SalutWrapper.vue'
 import Page01View from './Hansgrohe/Page01.vue'
 import Page02View from './Hansgrohe/Page02.vue'

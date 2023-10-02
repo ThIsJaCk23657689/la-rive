@@ -57,7 +57,8 @@ const menuItems = ref([
             { id: 8, name:'', path: '#', text: '力霸精品氣密窗 + 膠合玻璃' },
             { id: 9, name:'waferlock', path: '/salut/waferlock', text: 'WAFERLOCK 精品電子鎖' },
             { id: 10, name:'lamett', path: '/salut/lamett', text: '比利時 Lamett 石晶地板' },
-            { id: 11, name:'daiken', path: '/salut/daiken', text: '日本大建室內靜音門' }
+            { id: 11, name:'daiken', path: '/salut/daiken', text: '日本大建室內靜音門' },
+            { id: 12, name:'electriccar', path: '/salut/electriccar', text: '充電樁' }
         ]  
     },
 	{ 

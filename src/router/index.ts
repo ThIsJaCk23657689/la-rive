@@ -27,6 +27,7 @@ import LifeGearView from '@/views/SalutPages/LifeGearView.vue'
 import WaferlockView from '@/views/SalutPages/WaferlockView.vue'
 import LamettkView from '@/views/SalutPages/LamettkView.vue'
 import DaikenView from '@/views/SalutPages/DaikenView.vue'
+import ElectricCarView from '@/views/SalutPages/ElectricCarView.vue'
 
 // Bravo Pages
 import AboutUsView from '@/views/BravoPages/AboutUsView.vue'
@@ -160,6 +161,11 @@ const router = createRouter({
 							path: 'daiken',
 							name: 'daiken',
 							component: DaikenView,
+						},
+						{
+							path: 'electriccar',
+							name: 'electriccar',
+							component: ElectricCarView,
 						}
 					]
 				},
