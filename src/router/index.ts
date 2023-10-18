@@ -7,7 +7,7 @@ import ClaoView from '@/views/ClaoView.vue'
 import SalutView from '@/views/SalutView.vue'
 import BravoView from '@/views/BravoView.vue'
 
-// Clao Pages
+// Clao Pages 規劃
 import ThreeDVideoView from '@/views/ClaoPages/ThreeDVideoView.vue'
 import ApperanceView from '@/views/ClaoPages/ApperanceView.vue'
 import FirstFloorView from '@/views/ClaoPages/FirstFloorView.vue'
@@ -16,7 +16,13 @@ import StandardView from '@/views/ClaoPages/StandardView.vue'
 import StandardIndividualView from '@/views/ClaoPages/StandardIndividualView.vue'
 import BasementView from '@/views/ClaoPages/BasementView.vue'
 
-// Salut Pages
+// Facilities 公設
+import FacilitiesView from '@/layouts/FacilitiesLayout.vue'
+import TeaHouseView from '@/views/ClaoPages/Facilities/TeaHouseView.vue'
+import StairView from '@/views/ClaoPages/Facilities/StairView.vue'
+import ChampsElyseesView from '@/views/ClaoPages/Facilities/ChampsElyseesView.vue'
+
+// Salut Pages 選材
 import PanasonicKitchenView from '@/views/SalutPages/PanasonicKitchenView.vue'
 import RinnaiView from '@/views/SalutPages/RinnaiView.vue'
 import BoschView from '@/views/SalutPages/BoschView.vue'
@@ -29,13 +35,11 @@ import LamettkView from '@/views/SalutPages/LamettkView.vue'
 import DaikenView from '@/views/SalutPages/DaikenView.vue'
 import ElectricCarView from '@/views/SalutPages/ElectricCarView.vue'
 
-// Bravo Pages
+// Bravo Pages 業績實景
 import AboutUsView from '@/views/BravoPages/AboutUsView.vue'
-
 import TeamsView from '@/views/BravoPages/Teams/TeamsView.vue'
 import ChenView from '@/views/BravoPages/Teams/ChenView.vue'
 import TsaiView from '@/views/BravoPages/Teams/TsaiView.vue'
-
 import CasesView from '@/views/BravoPages/Cases/CasesView.vue'
 import Case01View from '@/views/BravoPages/Cases/Case01View.vue'
 import Case02View from '@/views/BravoPages/Cases/Case02View.vue'
@@ -104,6 +108,29 @@ const router = createRouter({
 							name: 'basement',
 							component: BasementView,
 						},
+						{
+							path: 'facilities',
+							name: 'facilities',
+							component: FacilitiesView,
+							redirect: { name: 'frontdoor' },
+							children: [
+								{
+									path: 'teahouse',
+									name: 'teahouse',
+									component: TeaHouseView,
+								},
+								{
+									path: 'stair',
+									name: 'stair',
+									component: StairView,
+								},
+								{
+									path: 'champselysees',
+									name: 'champselysees',
+									component: ChampsElyseesView, 
+								}
+							]
+						}
 					]
 				},
 				{

@@ -94,6 +94,20 @@ body {
 	}
 }
 
+/* ========== 淡入 ========== */
+.fade-enter-active {
+	transition: all 2.0s ease-out;
+}
+
+.fade-leave-active {
+	transition: all 2.0s ease-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
+}
+
 /* ========== 圖片淡入淡出 ========== */
 .image-fade-enter-active,
 .image-fade-leave-active {
@@ -104,6 +118,21 @@ body {
 
 .image-fade-enter-from, 
 .image-fade-leave-to {
+	visibility: hidden;
+    opacity: 0;
+}
+
+
+/* ========== 圖片淡入淡出(慢) ========== */
+.image-fade-slow-enter-active,
+.image-fade-slow-leave-active {
+    transition: all 2.0s ease;
+    visibility: visible;
+    position: absolute;
+}
+
+.image-fade-slow-enter-from, 
+.image-fade-slow-leave-to {
 	visibility: hidden;
     opacity: 0;
 }
