@@ -13,11 +13,11 @@ const spots = [
 </script>
 
 <template>
-<FloorPlanWrapper :image-url="mainImage" :title="'1'" :is-floor="true">
+<FloorPlanWrapper :image-url="mainImage" :title="'R'" :is-floor="true">
     <div class="w-full h-full absolute top-0 left-0 flex flex-col items-center justify-end">
         <div class="marker-container grid grid-cols-4">
 
-            <template v-for="(spot, index) in spots" :key="index">
+            <!-- <template v-for="(spot, index) in spots" :key="index">
                 <div class="mt-4 flex flex-row ">   
                     <div class="spot-marker english-font text-white bg-primary-100 text-center mr-2">
                         {{ spot.marker }}
@@ -26,7 +26,7 @@ const spots = [
                         {{ spot.text }}
                     </div>
                 </div>
-            </template>
+            </template> -->
 
         </div>
     </div>

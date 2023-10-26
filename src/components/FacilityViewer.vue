@@ -50,8 +50,7 @@ function prevImage() {
 		
 	<div class="w-full down-container flex flex-row bg-primary-100">
 		<div class="w-full h-full flex flex-row justify-start items-center pl-24">
-			<span class="text-3xl text-zinc-100 mr-6">{{ title }}</span>
-			<div class="w-2/3 h-px bg-zinc-200 mr-6"></div>
+			<div class="w-4/5 h-px bg-zinc-200 mr-6"></div>
 			<RouteButton :to="{ name: '1floor' }" class="ml-4">
 				<ArrowReturnIcon class="h-6 w-6 text-zinc-100"/>
 			</RouteButton>
