@@ -6,11 +6,11 @@ const mainImage = new URL('@/assets/images/floor-plans/1F.jpg', import.meta.url)
 
 const spots = [
     { marker: 'A', top: 71, left: 62.65, text: '香榭大道', url: '/clao/facilities/champselysees' },
-    { marker: 'B', top: 58.9, left: 44.55, text: '麗舍迎賓廳', url: '#' },
+    { marker: 'B', top: 58.9, left: 44.55, text: '麗舍迎賓廳', url: '/clao/facilities/lobby' },
     { marker: 'C', top: 44.5, left: 38.3, text: '宅配室', url: '#' },
     { marker: 'D', top: 48, left: 51, text: '梯廳', url: '/clao/facilities/stair' },
     { marker: 'E', top: 30.8, left: 53.2, text: '信箱區', url: '#' },
-    { marker: 'F', top: 31, left: 64, text: '人文生活沙龍', url: '#' },
+    { marker: 'F', top: 31, left: 64, text: '人文生活沙龍', url: '/clao/facilities/lounge' },
     { marker: 'G', top: 31, left: 29.4, text: 'TEA HOUSE', url: '/clao/facilities/teahouse' },
     { marker: 'H', top: 24.4, left: 40.5, text: '資源回收區', url: '#' },
     { marker: 'I', top: 22.8, left: 72.5, text: '綠光角落', url: '#' },

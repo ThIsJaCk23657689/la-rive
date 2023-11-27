@@ -21,6 +21,8 @@ import FacilitiesView from '@/layouts/FacilitiesLayout.vue'
 import TeaHouseView from '@/views/ClaoPages/Facilities/TeaHouseView.vue'
 import StairView from '@/views/ClaoPages/Facilities/StairView.vue'
 import ChampsElyseesView from '@/views/ClaoPages/Facilities/ChampsElyseesView.vue'
+import LobbyView from '@/views/ClaoPages/Facilities/LobbyView.vue'
+import LoungeView from '@/views/ClaoPages/Facilities/LoungeView.vue'
 
 // Salut Pages 選材
 import PanasonicKitchenView from '@/views/SalutPages/PanasonicKitchenView.vue'
@@ -128,7 +130,17 @@ const router = createRouter({
 									path: 'champselysees',
 									name: 'champselysees',
 									component: ChampsElyseesView, 
-								}
+								},
+								{
+									path: 'lobby',
+									name: 'lobby',
+									component: LobbyView,
+								},
+								{
+									path: 'lounge',
+									name: 'lounge',
+									component: LoungeView,
+								},
 							]
 						}
 					]

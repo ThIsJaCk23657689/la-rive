@@ -2,7 +2,7 @@
 import FacilityViewer from '@/components/FacilityViewer.vue';
 
 const facilityImages = [
-    new URL('@/assets/images/facilities/stair_01.png', import.meta.url).href,
+    new URL('@/assets/images/facilities/stair_01.jpg', import.meta.url).href,
 ];
 
 </script>
