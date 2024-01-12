@@ -129,7 +129,7 @@ function reset() {
                     <IconMagnifyingGlassMinus class="h-full"></IconMagnifyingGlassMinus>
                 </button>
                 <div class="scale-text text-white relative cursor-pointer" @click="reset">
-                    {{ ceil(scale * 100) }}%
+                    100%
                 </div>
             </div>
             <div class="right-area bg-neutral-100 shadow-md relative flex flex-row items-center">
