@@ -13,6 +13,7 @@ import Page08View from './PanasonicKitchen/Page08.vue'
 import Page09View from './PanasonicKitchen/Page09.vue'
 import Page10View from './PanasonicKitchen/Page10.vue'
 import Page11View from './PanasonicKitchen/Page11.vue'
+import Page12View from './PanasonicKitchen/Page12.vue'
 
 const pages = [
     Page01View,
@@ -25,7 +26,8 @@ const pages = [
     Page08View,
     Page09View,
     Page10View,
-    Page11View
+    Page11View,
+    Page12View
 ];
 
 const buttons = [
@@ -42,7 +44,7 @@ const buttons = [
     {
         text: "樣品屋",
         start: 7,
-        end: 10
+        end: 11
     }
 ];
 

@@ -3,10 +3,12 @@ import { RouterLink } from 'vue-router'
 import SalutWrapper from '../../layouts/SalutWrapper.vue'
 import Page01View from './Rinnai/Page01.vue'
 import Page02View from './Rinnai/Page02.vue'
+import Page03View from './Rinnai/Page03.vue'
 
 const pages = [
     Page01View,
-    Page02View
+    Page02View,
+    Page03View
 ];
 
 const buttons = [
@@ -18,7 +20,7 @@ const buttons = [
     {
         text: "樣品屋",
         start: 1,
-        end: 1
+        end: 2
     }
 ];
 

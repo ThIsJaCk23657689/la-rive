@@ -6,6 +6,7 @@ import Page03View from './Hansgrohe/Page03.vue'
 import Page04View from './Hansgrohe/Page04.vue'
 import Page05View from './Hansgrohe/Page05.vue'
 import Page06View from './Hansgrohe/Page06.vue'
+import Page07View from './Hansgrohe/Page07.vue'
 
 const pages = [
     Page01View,
@@ -13,7 +14,8 @@ const pages = [
     Page03View,
     Page04View,
     Page05View,
-    Page06View
+    Page06View,
+    Page07View
 ];
 
 const buttons = [
@@ -25,7 +27,7 @@ const buttons = [
     {
         text: "樣品屋",
         start: 4,
-        end: 5
+        end: 6
     },
 ];
 

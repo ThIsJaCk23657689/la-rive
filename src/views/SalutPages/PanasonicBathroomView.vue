@@ -7,13 +7,15 @@ import Page02View from './PanasonicBathroom/Page02.vue'
 import Page03View from './PanasonicBathroom/Page03.vue'
 import Page04View from './PanasonicBathroom/Page04.vue'
 import Page05View from './PanasonicBathroom/Page05.vue'
+import Page06View from './PanasonicBathroom/Page06.vue'
 
 const pages = [
     Page01View,
     Page02View,
     Page03View,
     Page04View,
-    Page05View
+    Page05View,
+    Page06View
 ];
 
 const buttons = [
@@ -30,7 +32,7 @@ const buttons = [
     {
         text: "樣品屋",
         start: 4,
-        end: 4
+        end: 5
     },
 ];
 

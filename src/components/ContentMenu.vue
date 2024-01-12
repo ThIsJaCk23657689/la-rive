@@ -54,7 +54,7 @@ const menuItems = ref([
             { id: 5, name:'innoci', path: '/salut/innoci', text: '德國 innoci 精品衛浴' },
             { id: 6, name:'hansgrohe', path: '/salut/hansgrohe', text: '德國 hansgrohe 頂級衛浴五金龍頭' },
             { id: 7, name:'lifegear', path: '/salut/lifegear', text: 'LIFEGEAR 多功能暖風機' },
-            { id: 8, name:'', path: '#', text: '力霸精品氣密窗 + 膠合玻璃' },
+            { id: 8, name:'security', path: '/salut/security', text: '智慧社區管理系統' },
             { id: 9, name:'waferlock', path: '/salut/waferlock', text: 'WAFERLOCK 精品電子鎖' },
             { id: 10, name:'lamett', path: '/salut/lamett', text: '比利時 Lamett 石晶地板' },
             { id: 11, name:'daiken', path: '/salut/daiken', text: '日本大建室內靜音門' },

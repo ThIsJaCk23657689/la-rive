@@ -32,6 +32,7 @@ import PanasonicBathroomView from '@/views/SalutPages/PanasonicBathroomView.vue'
 import InnociView from '@/views/SalutPages/InnociView.vue'
 import HansgroheView from '@/views/SalutPages/HansgroheView.vue'
 import LifeGearView from '@/views/SalutPages/LifeGearView.vue'
+import SecurityView from '@/views/SalutPages/SecurityView.vue'
 import WaferlockView from '@/views/SalutPages/WaferlockView.vue'
 import LamettkView from '@/views/SalutPages/LamettkView.vue'
 import DaikenView from '@/views/SalutPages/DaikenView.vue'
@@ -185,6 +186,11 @@ const router = createRouter({
 							path: 'lifegear',
 							name: 'lifegear',
 							component: LifeGearView,
+						},
+						{
+							path: 'security',
+							name: 'security',
+							component: SecurityView,
 						},
 						{
 							path: 'waferlock',
